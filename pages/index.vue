@@ -26,7 +26,7 @@
       <product-card
         v-for="product in products"
         :key="`product-${product.id}`"
-        :class="$style['products-mold']"
+        :class="$style['product-mold']"
         :product="product"
       />
     </section>
@@ -34,7 +34,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mapGetters } from 'vuex'
 import ProductCard from '~/components/product/ProductCard.vue'
 import FloorCard from '~/components/card/FloorCard'
