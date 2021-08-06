@@ -1,0 +1,52 @@
+@mixin square($sizes) {
+  width: $sizes;
+  height: $sizes;
+}
+
+$controller-color: #c3c4ca;
+$controller-background-color: #f0f1f2;
+
+.name {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  color: #ef553b;
+}
+
+.controller-mold {
+  $this-border-radius: 5px;
+  display: flex;
+  text-align: center;
+  font-size: x-large;
+
+  & > div {
+    @include square(46px);
+    border: 1px solid $controller-background-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+      border-radius: $this-border-radius  0 0 $this-border-radius;
+      color: $controller-color;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    &:nth-child(2) {
+      background-color: $controller-background-color;
+      font-size: medium;
+    }
+
+    &:last-child {
+      border-radius: 0 $this-border-radius $this-border-radius 0;
+      color: $controller-color;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@use "sass:math";
+
+@mixin square($sizes) {
+  width: $sizes;
+  height: $sizes;
+}
+
+$shadow-color: #c4c4c4;
+$default-margin-size: 19px;
+
+@mixin default-shadow {
+  box-shadow: 0 1px 1px 0 $shadow-color;
+}
+
+
+body {
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.template-mold {
+  max-width: 961px;
+
+  header {
+    $logo-mold-size: 100px;
+    @include default-shadow;
+    margin-top: 117px;
+    margin-bottom: 22px;
+    background-color: white;
+    width: 100%;
+    height: 150px;
+    position: relative;
+
+    .logo-mold {
+      @include default-shadow;
+      @include square($logo-mold-size);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+    }
+
+    .name {
+      margin-top: math.div($logo-mold-size,2) + 11px;
+      margin-bottom: 10px;
+    }
+
+    .rate-mold {
+      &>span {
+        font-size: xx-small;
+        color: #c7c7c7;
+        font-weight: bold;
+      }
+    }
+
+    .address {
+      color: #6b727e;
+      margin-top: 10px;
+      font-size: small;
+    }
+  }
+
+  section {
+    .product-mold {
+      @include default-shadow;
+      background-color: white;
+      border-radius: 5px;
+      width: 232px;
+      height: 274px;
+      margin-bottom: 12px;
+      font-size: small;
+    }
+  }
+}
